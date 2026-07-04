@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Srinivas | Premium Veg Dining</title>
+    
+    <!-- Browser Tab Icon (Favicon) -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
     <!-- Google Fonts for premium typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,6 +36,50 @@
             background-color: var(--dark);
             color: var(--light);
             overflow-x: hidden;
+        }
+
+        /* --- Website Preloader --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--dark);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .loader-content {
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+            padding: 2rem;
+        }
+
+        .loader-logo {
+            max-width: 150px;
+            height: auto;
+            margin-top: 1.5rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            margin: 0 auto;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
         /* --- Hero Section --- */
@@ -303,7 +351,6 @@
             color: var(--accent);
         }
 
-        /* Interactive Map Link Box styling */
         .map-link-box {
             display: block;
             text-decoration: none;
@@ -329,7 +376,6 @@
             text-transform: uppercase;
         }
 
-        /* Simple entry animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -390,10 +436,22 @@
             .footer-note {
                 margin-top: 3.5rem;
             }
+            
+            .loader-logo {
+                max-width: 120px;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Logo Preloader Overlay -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <img src="logo.png" alt="Hotel Srinivas Logo" class="loader-logo">
+        </div>
+    </div>
 
     <!-- Hero Framework -->
     <section class="hero">
@@ -538,7 +596,7 @@
         <div class="contact-grid">
             <div class="info-block">
                 <h4>LOCATION</h4>
-                <a href="https://maps.google.com/?cid=4198196379757464788" target="_blank" class="map-link-box" rel="noopener noreferrer">
+                <a href="https://maps.google.com/?q=Hotel+srinivas,+KALASA" target="_blank" class="map-link-box" rel="noopener noreferrer">
                     <p>Hotel Srinivas<br>Manjinakatte, Kalasa,<br>Chikkamagaluru, Karnataka</p>
                 </a>
             </div>
@@ -558,5 +616,15 @@
         </div>
     </footer>
 
+    <!-- Preloader Engine script -->
+    <script>
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function() {
+                preloader.style.visibility = 'hidden';
+            }, 600);
+        });
+    </script>
 </body>
 </html>
