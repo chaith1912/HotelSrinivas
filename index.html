@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Srinivas | Premium Veg Dining</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #112d1b;
+            --accent: #d4af37; /* Premium Gold */
+            --accent-rgb: 212, 175, 55;
+            --dark: #0a140e;
+            --light: #f4f7f5;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(rgba(10, 20, 14, 0.85), rgba(10, 20, 14, 0.95)), 
+                        url('https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .hero-content {
+            max-width: 850px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .gold-tag {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        h1 {
+            font-family: 'Marcellus', serif;
+            font-size: 4rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 30%, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .kannada-desc {
+            font-size: 1.3rem;
+            line-height: 2;
+            color: #b3c2b8;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn:hover {
+            color: var(--dark);
+            background: var(--accent);
+            box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* --- Showcase / Gallery Section --- */
+        .section-padding {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sec-title {
+            font-family: 'Marcellus', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .sec-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .showcase-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(var(--accent-rgb), 0.4);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .showcase-card:hover .img-container img {
+            transform: scale(1.06);
+        }
+
+        .card-details {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .card-details h3 {
+            font-family: 'Marcellus', serif;
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-details p {
+            font-size: 0.9rem;
+            color: #8fa095;
+        }
+
+        /* --- Split Menu Layout --- */
+        .menu-container {
+            background: linear-gradient(to bottom, var(--dark), #0f1f15, var(--dark));
+            padding: 6rem 2rem;
+        }
+
+        .menu-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .menu-section {
+            margin-bottom: 4rem;
+        }
+
+        .menu-cat-title {
+            font-family: 'Marcellus', serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .menu-cat-title::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        .item-left h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 0.2rem;
+        }
+
+        .item-left p {
+            font-size: 0.85rem;
+            color: #7d9184;
+        }
+
+        .veg-icon {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 1px solid #4caf50;
+            padding: 2px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .veg-icon::after {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            background: #4caf50;
+            border-radius: 50%;
+        }
+
+        /* --- Footer / Contact Section --- */
+        .contact-panel {
+            background: #060d09;
+            border-top: 1px solid var(--glass-border);
+            padding: 5rem 2rem 3rem 2rem;
+        }
+
+        .contact-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .info-block h4 {
+            font-family: 'Marcellus', serif;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .info-block p, .info-block a {
+            color: #a4b5ab;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+        .info-block a:hover {
+            color: var(--accent);
+        }
+
+        /* Interactive Map Link Box styling */
+        .map-link-box {
+            display: block;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .map-link-box:hover {
+            transform: translateY(-2px);
+        }
+
+        .map-link-box:hover p {
+            color: var(--accent);
+            text-decoration: underline;
+            text-decoration-color: rgba(var(--accent-rgb), 0.4);
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 5rem;
+            font-size: 0.8rem;
+            color: #55635a;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Simple entry animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Media Queries for Mobile Compatibility --- */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 75vh;
+                padding: 3rem 1rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .kannada-desc {
+                font-size: 1.1rem;
+                line-height: 1.8;
+                margin-bottom: 2rem;
+            }
+
+            .section-padding {
+                padding: 3.5rem 1rem;
+            }
+
+            .sec-title {
+                font-size: 2rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .showcase-grid {
+                gap: 1.5rem;
+            }
+
+            .menu-container {
+                padding: 3.5rem 1rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .menu-cat-title {
+                font-size: 1.4rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .contact-panel {
+                padding: 3.5rem 1rem 2rem 1rem;
+            }
+
+            .contact-grid {
+                gap: 2rem;
+            }
+
+            .footer-note {
+                margin-top: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Framework -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="gold-tag">Pure Vegetarian Fine Taste</span>
+            <h1>HOTEL SRINIVAS</h1>
+            <p class="kannada-desc">
+                ಹೋಟೆಲ್ ಶ್ರೀನಿವಾಸ್ ಸಂಸ್ಥೆಗೆ ಆದರದ ಸುಸ್ವಾಗತ. ಕಳಸದ ಮಂಜಿನಕಟ್ಟೆಯಲ್ಲಿರುವ ನಮ್ಮ ಹೋಟೆಲ್‌ನಲ್ಲಿ ಸಂಪೂರ್ಣ ಶುದ್ಧ ಸಸ್ಯಾಹಾರಿ ಶೈಲಿಯ ರುಚಿಕರವಾದ ಹಾಗೂ ಗರಿಗರಿಯಾದ ದಕ್ಷಿಣ ಭಾರತದ ಬೆಳಗಿನ ಉಪಹಾರಗಳು, ಸಂಜೆಯ ರುಚಿಕರವಾದ ಚೈನೀಸ್ ಶೈಲಿಯ ತಿಂಡಿಗಳು ಮತ್ತು ಬಿಸಿಬಿಸಿಯಾದ ದೋಸೆಗಳು ಲಭ್ಯವಿವೆ. 
+            </p>
+            <a href="#menu" class="cta-btn">Explore Menu / ಮೆನು ನೋಡಿ</a>
+        </div>
+    </section>
+
+    <!-- Visual Curated Grid -->
+    <section class="section-padding">
+        <h2 class="sec-title">Our Specialities</h2>
+        <div class="showcase-grid">
+            <div class="showcase-card">
+                <div class="img-container">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/071/459/490/small/south-indian-breakfast-idli-vada-sambar-chutney-and-filter-coffee-free-photo.jpg" alt="Breakfast">
+                </div>
+                <div class="card-details">
+                    <h3>ಬೆಳಗಿನ ಉಪಹಾರ</h3>
+                    <p>Authentic Morning Breakfast Classics</p>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80" alt="Evening Snacks">
+                </div>
+                <div class="card-details">
+                    <h3>ಸಂಜೆಯ ವಿಶೇಷ ತಿಂಡಿಗಳು</h3>
+                    <p>Delicious Fast Food & Hot Crispy Dosas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sleek Typography Interactive Menu -->
+    <section class="menu-container" id="menu">
+        <div class="menu-wrapper">
+            <h2 class="sec-title">Culinary Menu</h2>
+
+            <!-- Breakfast Category -->
+            <div class="menu-section">
+                <div class="menu-cat-title">ಬೆಳಗಿನ ಉಪಹಾರ / Morning Breakfast</div>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <h4><span class="veg-icon"></span>ಇಡ್ಲಿ ವಡೆ / Idli Vada</h4>
+                            <p>Soft steamed rice cakes served with crispy lentil fritters</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <h4><span class="veg-icon"></span>ಪೂರಿ ಸಾಗು / Poori Sagu</h4>
+                            <p>Fluffy golden puris paired with rich mixed vegetable sagu</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <h4><span class="veg-icon"></span>ಮಂಗಳೂರು ಬನ್ಸ್   / Mangaluru Buns</h4>
+                            <p>Authentic coastal delicacy of soft, puffed banana buns served warm</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <h4><span class="veg-icon"></span>ಪುಲಾವ್  / Pulav </h4>
+                            <p>Delicately seasoned long-grain rice infused with rich local herbs and whole spices</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evening Snacks Category -->
+            <div class="menu-section">
+                <div class="menu-cat-title">ಸಂಜೆಯ ತಿಂಡಿಗಳು / Evening Snacks & Dosas</div>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <h4><span class="veg-icon"></span>ಗೋಬಿ ಮಂಚೂರಿ / Gobi Manchurian</h4>
+                            <p>Crispy fried cabbage tossed in premium spicy Manchurian sauce</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <h4><span class="veg-icon"></span>ನೂಡಲ್ಸ್ / Veg Noodles</h4>
+                            <p>Wok-tossed fine noodles loaded with fresh local vegetables</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <h4><span class="veg-icon"></span>ಫ್ರೈಡ್ ರೈಸ್ / Veg Fried Rice</h4>
+                            <p>Fragrant, well-seasoned rice fried over extreme heat with fresh veggies</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <h4><span class="veg-icon"></span>ಮಸಾಲೆ ದೋಸೆ / Masala Dosa</h4>
+                            <p>Crispy golden crepe layered with fresh aromatic potato filling</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <h4><span class="veg-icon"></span>ಖಾಲಿ ದೋಸೆ / Khali Dosa</h4>
+                            <p>Light, soft sponge-textured authentic plain dosas</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <h4><span class="veg-icon"></span>ಆನಿಯನ್ ಉತಪ್ಪ    / ಆನಿಯನ್ Uthappa</h4>
+                            <p>Savory thick pancakes studded with golden roasted onions and green chilies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beverage Category -->
+            <div class="menu-section">
+                <div class="menu-cat-title">ಪಾನೀಯಗಳು / Hot Beverages</div>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <h4><span class="veg-icon"></span>ಫಿಲ್ಟರ್ ಕಾಫಿ / Filter Coffee</h4>
+                            <p>Traditional aromatic chicory blend brewed to perfection</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <h4><span class="veg-icon"></span>ವಿಶೇಷ ಟೀ / Special Tea</h4>
+                            <p>Freshly steeped hot milk tea infused with cardamom</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Clean Layout Contact Panel -->
+    <footer class="contact-panel">
+        <div class="contact-grid">
+            <div class="info-block">
+                <h4>LOCATION</h4>
+                <a href="https://maps.google.com/?cid=4198196379757464788" target="_blank" class="map-link-box" rel="noopener noreferrer">
+                    <p>Hotel Srinivas<br>Manjinakatte, Kalasa,<br>Chikkamagaluru, Karnataka</p>
+                </a>
+            </div>
+            <div class="info-block">
+                <h4>RESERVATIONS</h4>
+                <p>Call us directly for group orders:<br>
+                <a href="tel:+919448744397">+91 9448744397</a><br>
+                <a href="tel:+919448900092">+91 9448900092</a></p>
+            </div>
+            <div class="info-block">
+                <h4>HOURS</h4>
+                <p>Open Daily<br>7:00 AM – 12:30 PM<br>2:30 PM - 7:30 PM</p>
+            </div>
+        </div>
+        <div class="footer-note">
+            &copy; 2026 Hotel Srinivas Kalasa. Crafted for Premium Vegetarian Dining.
+        </div>
+    </footer>
+
+</body>
+</html>
